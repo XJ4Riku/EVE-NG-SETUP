@@ -18,7 +18,7 @@ The procedure aims to facilitate:
   
     
 ## Application
-This SOP applies to students, lab assistants, or IT trainees using EVE-NG for hands-on learning, certification prep (e.g., CCNA), safe experimentation, multi-vendor exposure, collaborative labs, applying theory (e.g., VLANs), cost-effective practice, intro to automation, real-world scenarios, and guided troubleshooting in a virtual network environment.
+This SOP applies to students, lab assistants, or IT trainees using EVE-NG for hands-on learning, certification prep (e.g., CCNA), safe experimentation, multi-vendor exposure, collaborative labs, applying theory (e.g., VLANs), cost-effective practice, intro to automation, real-world scenarios, and guided troubleshooting in a virtual network environment.\
 It is relevant in circumstances such as:
  * Converting from Cisco Packet Tracer to EVE-NG environment for more advanced emulation and multi-vendor support.
  * Transitioning from theoretical study to practical, scalable network simulations.
