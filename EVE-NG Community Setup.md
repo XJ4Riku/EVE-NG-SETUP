@@ -79,4 +79,4 @@ It is relevant in circumstances such as:
     </tr>
 </table>
 
-[More informations from EVE-NG community Cookbook](https://www.eve-ng.net/index.php/documentation/community-cookbook/))
+[More informations from EVE-NG community Cookbook](https://www.eve-ng.net/index.php/documentation/community-cookbook/)
