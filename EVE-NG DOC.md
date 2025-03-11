@@ -1,4 +1,4 @@
-#  Migrate VMware machine to Proxmox VE 
+#  EVE-NG Community Edition Setup
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfl4UoFvHn9M4mdhpcJL_uAXgQ4WHNLbVNRkBRS8V0LDq0jITBZC12xwXaYbQ1TzTOOD8&usqp=CAU)
 
 [MITT NSA](https://mitt.ca/programs/post-secondary-programs/2385/network-and-systems-administrator-diploma) Winter 24P2\
@@ -6,12 +6,12 @@
 (204) 989-6500\
 *Version #1 of document*\
 Written by:  **Ching-An Hu** **Ching-Chuan Hu**\
-Approved by: **Rogelio Villaver Jr**\
-Date: 03/05/2025
+Approved by: **Victor Chavez**\
+Date: 03/11/2025
 
 ## Purpose
-This Standard Operating Procedure (SOP) is designed  to provide a clear and repeatable process for migrating **Virtual Machines (VMs)** from an existing **VMware ESXi** or **local VMware** to **Proxmox Virtual Environment (VE)**. 
-This ensures minimal downtime, proper configuration, and compatibility with the target system while maintaining best practices for academic or lab environments.
+This Standard Operating Procedure (SOP) is designed  to provide a clear and repeatable process for installing **EVE-NG community edition**, loading **Device Image**, fixing **PHP Warning**, and creating **Lab**. 
+This ensures proper configuration, and compatibility with the target system while maintaining best practices for academic or lab environments.
 
 The procedure aims to facilitate:
   * The procedure ensures VMs are migrated from a source VMware to Proxmox VE with minimal errors or data loss, maintaining operational continuity.
@@ -28,23 +28,53 @@ It is relevant in circumstances such as:
  * Testing New Virtualization Software.
 
 ## Definitions
+**EVE-NG(Emulated Virtual Environment - Next Generation)** : A network emulation platform that allows users to create and test virtual network environments. It’s widely used by IT professionals for learning, training, and simulating complex network setups without physical hardware.\
 **VM (Virtual Machine)** : A software-based emulation of a physical computer running an operating system and applications.\
-**Proxmox VE** : An open-source virtualization platform based on QEMU/KVM and LXC.\
-**Hypervisor** : Software that creates and manages VMs (e.g., VMware ESXi or Proxmox VE).\
-**VirtIO** : Paravirtualized drivers that improve VM performance on compatible systems.\
-**Live-Import** : A migration method that starts the VM during the import process to reduce downtime.\
-**OVF/OVA** : Open Virtualization Format, a standard for packaging and distributing VMs.\
+
 **ESXi** : VMware’s type-1 hypervisor used as a common migration source.
 
 
-## Hardware requirements for Proxmox Virtual Environment
-|Components     |Minimum Requirements    |
-|---------------|------------------------|
-|CPU            |Intel 64 or AMD64 with Intel VT/AMD-V CPU flag. | 
-|RAM            |Minimum 2 GB for OS and Proxmox VE services. Plus designated memory for guests. For Ceph or ZFS additional memory is required, approximately 1 GB memory for every TB used storage. |
-|OS Storage        |Fast and redundant storage, best results with SSD disks. Hardware RAID with batteries protected write cache (“BBU”) or non-RAID with ZFS and SSD cache.|
-|VM Storage        |For local storage use a hardware RAID with battery backed write cache (BBU) or non-RAID for ZFS. Neither ZFS nor Ceph are compatible with a hardware RAID controller. Shared and distributed storage is also possible.|
-|Network        |Redundant Gbit NICs, additional NICs depending on the preferred storage technology and cluster setup – 10 Gbit and higher is also supported. |
-|Connect|For PCI(e) passthrough a CPU with VT-d/AMD-d CPU flag is needed.|
+## Hardware requirements for EVE-NG
+### Minimal Laptop/PC Desktop system requirements
+<table>
+    <tr>
+        <th colspan="2">PC/Laptop HW requirements</th>
+    </tr>
+    <tr>
+        <td>CPU</td>
+        <td>Intel i7 (8 Logical processors vCPU), Enabled Intel virtualization in BIOS</td>
+    </tr>
+    <tr>
+        <td>RAM</td>
+        <td>8GB</td>
+    </tr>
+    <tr>
+        <td>HDD Space</td>
+        <td>50GB</td>
+    </tr>
+    <tr>
+        <td>Network</td>
+        <td>LAN/WLAN</td>
+    </tr>
+    <tr>
+        <th colspan="2">EVE Virtual machine requirements</th>
+    </tr>
+    <tr>
+        <td>CPU</td>
+        <td>1/8 (Amount of processors/Number of cores per processor) Enabled Virtualize Intel VT-x/EPT or AMD-V/RVI and virtualize IOMMU options</td>
+    </tr>
+    <tr>
+        <td>RAM</td>
+        <td>8GB or more</td>
+    </tr>
+    <tr>
+        <td>HDD</td>
+        <td>50GB or more</td>
+    </tr>
+    <tr>
+        <td>Network</td>
+        <td>VMware NAT or Bridged network adapter</td>
+    </tr>
+</table>
 
-[More informations from Proxmox offical website](https://www.proxmox.com/en/products/proxmox-virtual-environment/requirements).
+[More informations from EVE-NG community Cookbook](https://www.eve-ng.net/index.php/documentation/community-cookbook/))
