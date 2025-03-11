@@ -32,7 +32,7 @@ It is relevant in circumstances such as:
 **CISCO** : An American multinational digital communications technology conglomerate corporation.\
 **Packet Tracer** : A computer networking simulation software for teaching and learning networking, IoT, and cybersecurity skills in a virtual lab.\
 **WinSCP** : An open source free SFTP client, FTP client, WebDAV client, S3 client and SCP client and file manager for Windows.\
-**Filezilla** : A free, open source FTP client supports FTP, SFTP, and FTPS (FTP over SSL/TLS) is available on Windows, Linux and Mac OS X.\
+**Filezilla** : A free, open source FTP client supports FTP, SFTP, and FTPS (FTP over SSL/TLS) is available on Windows, Linux and Mac OS X.
 
 
 ## Hardware requirements for EVE-NG
