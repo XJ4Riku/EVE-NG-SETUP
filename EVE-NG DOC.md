@@ -14,24 +14,25 @@ This Standard Operating Procedure (SOP) is designed  to provide a clear and repe
 This ensures proper configuration, and compatibility with the target system while maintaining best practices for academic or lab environments.
 
 The procedure aims to facilitate:
-  * The procedure ensures VMs are migrated from a source VMware to Proxmox VE with minimal errors or data loss, maintaining operational continuity.
-  * By offering options like live-import and efficient manual methods (e.g., disk cloning), the procedure minimizes the time VMs are offline, which is critical for production-like lab environments.
-  * Verification steps and post-migration tasks ensure the migrated VMs function correctly, facilitating a stable and reliable outcome.
+  * The procedure ensures setup and configuration of virtual network labs in EVE-NG, enabling users to efficiently emulate complex network topologies for testing and training purposes
+  
     
 ## Application
-This SOP applies to students, lab assistants, or IT trainees tasked with migrating VMs in a controlled environment, such as a lab or a virtualized testing setup. 
-It covers both manual and automatic migration methods for VMs running Linux or Windows operating systems.
-
+This SOP applies to students, lab assistants, or IT trainees using EVE-NG for hands-on learning, certification prep (e.g., CCNA), safe experimentation, multi-vendor exposure, collaborative labs, applying theory (e.g., VLANs), cost-effective practice, intro to automation, real-world scenarios, and guided troubleshooting in a virtual network environment.
 It is relevant in circumstances such as:
- * Upgrading Virtualization Platforms in a Lab Environment.
- * Replacing End-of-Life Hypervisors.
- * Testing New Virtualization Software.
+ * Converting from Cisco Packet Tracer to EVE-NG environment for more advanced emulation and multi-vendor support.
+ * Transitioning from theoretical study to practical, scalable network simulations.
+ * Conducting group labs where physical hardware is limited or unavailable.
+ * Preparing for real-world scenarios by simulating enterprise-grade network setups.
+ * Practicing automation and scripting in a controlled, virtualized environment.
 
 ## Definitions
 **EVE-NG(Emulated Virtual Environment - Next Generation)** : A network emulation platform that allows users to create and test virtual network environments. It’s widely used by IT professionals for learning, training, and simulating complex network setups without physical hardware.\
 **VM (Virtual Machine)** : A software-based emulation of a physical computer running an operating system and applications.\
-
-**ESXi** : VMware’s type-1 hypervisor used as a common migration source.
+**CISCO** : An American multinational digital communications technology conglomerate corporation.
+**Packet Tracer** : A computer networking simulation software for teaching and learning networking, IoT, and cybersecurity skills in a virtual lab.
+**WinSCP** : An open source free SFTP client, FTP client, WebDAV client, S3 client and SCP client and file manager for Windows.
+**Filezilla** : A free, open source FTP client supports FTP, SFTP, and FTPS (FTP over SSL/TLS) is available on Windows, Linux and Mac OS X.
 
 
 ## Hardware requirements for EVE-NG
