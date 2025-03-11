@@ -29,10 +29,10 @@ It is relevant in circumstances such as:
 ## Definitions
 **EVE-NG(Emulated Virtual Environment - Next Generation)** : A network emulation platform that allows users to create and test virtual network environments. It’s widely used by IT professionals for learning, training, and simulating complex network setups without physical hardware.\
 **VM (Virtual Machine)** : A software-based emulation of a physical computer running an operating system and applications.\
-**CISCO** : An American multinational digital communications technology conglomerate corporation.
-**Packet Tracer** : A computer networking simulation software for teaching and learning networking, IoT, and cybersecurity skills in a virtual lab.
-**WinSCP** : An open source free SFTP client, FTP client, WebDAV client, S3 client and SCP client and file manager for Windows.
-**Filezilla** : A free, open source FTP client supports FTP, SFTP, and FTPS (FTP over SSL/TLS) is available on Windows, Linux and Mac OS X.
+**CISCO** : An American multinational digital communications technology conglomerate corporation.\
+**Packet Tracer** : A computer networking simulation software for teaching and learning networking, IoT, and cybersecurity skills in a virtual lab.\
+**WinSCP** : An open source free SFTP client, FTP client, WebDAV client, S3 client and SCP client and file manager for Windows.\
+**Filezilla** : A free, open source FTP client supports FTP, SFTP, and FTPS (FTP over SSL/TLS) is available on Windows, Linux and Mac OS X.\
 
 
 ## Hardware requirements for EVE-NG
