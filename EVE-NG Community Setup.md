@@ -100,68 +100,72 @@ Ensure VMware Workstation is installed on your system. [VMWare website](https://
    4. Name your virtual machine (e.g., "EVE-NG") and specify a location for the VM files if needed.
    5. Set the virtual disk size (e.g., 50 GB). Choose whether to store the virtual disk as a single file or split it into multiple files.
 3. Configure Virtual Machine Settings
-Before starting the VM, click "Customize Hardware" to adjust the settings:
-Memory: Allocate at least 8 GB (more if possible).
-Processors: Assign 4 cores or more.
-Network Adapter: Set to "NAT" or "Bridged" depending on your needs.
-CD/DVD: Ensure it’s connected to the EVE-NG ISO file.
-Save the settings and click "Finish."
-4. Install EVE-NG
-Power on the virtual machine.
-You’ll see two options. Select "Install EVE-NG Community 6.2.0-4" and press Enter.
-In the "Keyboard configuration" screen, choose your keyboard layout (e.g., English US) and click "Done."
-Skip the network configuration prompt by clicking "Continue" (you can configure it later).
-The installation will proceed automatically. Take a break and grab a coffee—this may take a few minutes.
-After installation, the VM will reboot. You might see an error like [FAILED] Failed unmounting /cdrom. Don’t worry; it’s just because the ISO isn’t mounted at boot.
-5. Initial Setup
-After rebooting, log in with the default credentials:
-Username: root
-Password: eve
-The first login will prompt you to change the password. Enter a new password twice (or reuse eve if you’re worried about forgetting it).
-Configure the network:
-Run ifconfig to check the network interface (e.g., eth0).
-Edit the network configuration file with: nano /etc/netplan/01-netcfg.yaml
-Example configuration:
-```
-network:
-  version: 2
-  ethernets:
-    eth0:
-      dhcp4: true
-```
-Save the file (Ctrl+O, Enter, Ctrl+X) and apply changes with: netplan apply
-Verify connectivity by pinging an external site: ping www.google.com
+   1. Before starting the VM, click "Customize Hardware" to adjust the settings:
+   2. Memory: Allocate at least 8 GB (more if possible).
+   3. Processors: Assign 4 cores or more.
+   4. Network Adapter: Set to "NAT" or "Bridged" depending on your needs.
+   5. CD/DVD: Ensure it’s connected to the EVE-NG ISO file.
+   6. Save the settings and click "Finish."
+5. Install EVE-NG
+   1. Power on the virtual machine.
+   2. You’ll see two options. Select "Install EVE-NG Community 6.2.0-4" and press Enter.
+   3. In the "Keyboard configuration" screen, choose your keyboard layout (e.g., English US) and click "Done."
+   4. Skip the network configuration prompt by clicking "Continue" (you can configure it later).
+   5. The installation will proceed automatically. Take a break and grab a coffee—this may take a few minutes.
+   6. After installation, the VM will reboot. You might see an error like [FAILED] Failed unmounting /cdrom. Don’t worry; it’s just because the ISO isn’t mounted at boot.
+7. Initial Setup
+   1. After rebooting, log in with the default credentials:
+      ```
+      Username: root
+      Password: eve
+      ```
+   2. The first login will prompt you to change the password. Enter a new password twice (or reuse eve if you’re worried about forgetting it).
+   3. Configure the network:
+      1. Run ifconfig to check the network interface (e.g., eth0).
+      2. Edit the network configuration file with: nano /etc/netplan/01-netcfg.yaml
+      3. Example configuration:
+        ```
+        network:
+         version: 2
+          ethernets:
+            eth0:
+              dhcp4: true
+        ```
+   4. Save the file (Ctrl+O, Enter, Ctrl+X) and apply changes with: netplan apply
+   5. Verify connectivity by pinging an external site: ping www.google.com
 6. Access EVE-NG Web Interface
-Open a browser on your host machine and enter the IP address of the EVE-NG VM (found via ifconfig).
-Log in with:
-Username: admin
-Password: eve
-You’re now in the EVE-NG web interface, ready to create labs!
-Adding Device Images
-EVE-NG doesn’t come with pre-installed device images due to licensing restrictions. You’ll need to source and upload images yourself (e.g., Cisco IOS, Juniper, etc.). Here’s how:
+   * Open a browser on your host machine and enter the IP address of the EVE-NG VM (found via ifconfig).
+   * Log in with:
+   ```
+   Username: admin
+   Password: eve
+   ```
+7. Adding Device Images
+   * EVE-NG doesn’t come with pre-installed device images due to licensing restrictions. You’ll need to source and upload images yourself (e.g., Cisco IOS, Juniper, etc.).
+   * Here’s how:
+     1. Obtain Images: Legally acquire device images from vendors or authorized sources.
+     2. Upload Images: Use an SFTP client (e.g., WinSCP) to connect to the EVE-NG VM (IP address, root credentials).
+     3. Navigate to /opt/unetlab/addons/qemu/.
+     4. Create a folder for your image (e.g., cisco-ios-15.2).
+     5. Upload the image file (e.g., .qcow2 format).
+   * Fix Permissions: On the EVE-NG VM, run:
+   ```
+   /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+   ```
+   * The uploaded image will now be available in the EVE-NG web interface under "Add Node."
 
-Obtain Images: Legally acquire device images from vendors or authorized sources.
-Upload Images:
-Use an SFTP client (e.g., WinSCP) to connect to the EVE-NG VM (IP address, root credentials).
-Navigate to /opt/unetlab/addons/qemu/.
-Create a folder for your image (e.g., cisco-ios-15.2).
-Upload the image file (e.g., .qcow2 format).
-Fix Permissions: On the EVE-NG VM, run:
-```bash
-/opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-```
-The uploaded image will now be available in the EVE-NG web interface under "Add Node."
-Creating Your First Lab
-In the EVE-NG web interface, click "Lab" > "New Lab."
-Name your lab (e.g., "Test Lab") and click "Save."
-Add devices:
-Click "Add an object" > "Node."
-Select a device type (e.g., Cisco IOS) and configure its settings (CPU, RAM, etc.).
-Connect devices:
-Click "Add an object" > "Network" to create a network segment.
-Drag connections between device interfaces.
-Start the lab:
-Right-click each node and select "Start."
-Access device consoles via the web interface (HTML5 or Telnet).
-Conclusion
+## Creating Your First Lab
+1. In the EVE-NG web interface, click "Lab" > "New Lab."
+2. Name your lab (e.g., "Test Lab") and click "Save."
+3. Add devices:
+   * Click "Add an object" > "Node."
+   * Select a device type (e.g., Cisco IOS) and configure its settings (CPU, RAM, etc.).
+4. Connect devices:
+   * Click "Add an object" > "Network" to create a network segment.
+   * Drag connections between device interfaces.
+5. Start the lab:
+   * Right-click each node and select "Start."
+   * Access device consoles via the web interface (HTML5 or Telnet).
+
+## Conclusion
 With EVE-NG installed, you now have a fully functional network lab at your fingertips. Whether you’re studying for certifications or testing network designs, EVE-NG offers a robust platform to hone your skills. Start exploring and building your virtual networks today!
